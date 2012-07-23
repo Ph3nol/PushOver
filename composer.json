@@ -1,0 +1,23 @@
+{
+    "name": "sly/pushover",
+    "description": "Sly PushOver Library",
+    "keywords": ["sly", "pushover", "api", "library"],
+    "homepage": "https://github.com/Ph3nol/PushOver",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cédric Dugat",
+            "email": "ph3@slynett.com"
+        }
+    ],
+    "require": {
+        "kriswallsmith/buzz": ">= 0.6"
+    },
+    "autoload": {
+        "psr-0": {
+            "Sly": ["src/"]
+        }
+    },
+    "minimum-stability": "dev"
+}
