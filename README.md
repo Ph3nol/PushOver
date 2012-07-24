@@ -40,12 +40,12 @@ You're ready to go.
 
 require_once '/path/to/vendor/autoload.php'; // or your global project autoload
 
-use Sly\Push;
+use Sly\PushOver\PushManager;
 
 /**
  * First argument is your PushOver user key, second is your API/token one.
  */
-$push = new Push('myUs3rk3y', 'myAp1k3y');
+$push = new PushManager('myUs3rk3y', 'myAp1k3y');
 
 /**
  * Second argument (the array) is optional, as its elements.

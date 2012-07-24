@@ -1,20 +1,20 @@
 <?php
 
-namespace Sly\Push;
+namespace Sly\PushOver;
 
-use Sly\Push\PushInterface;
+use Sly\PushOver\PushManagerInterface;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
 use Buzz\Client\Curl;
 
 /**
- * Push class.
+ * PushManager class.
  *
- * @uses PushInterface
+ * @uses PushManagerInterface
  * @author Cédric Dugat <ph3@slynett.com>
  */
-class Push implements PushInterface
+class PushManager implements PushManagerInterface
 {
     const API_URL = 'https://api.pushover.net/1/messages.json';
 

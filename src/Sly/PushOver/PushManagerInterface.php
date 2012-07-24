@@ -1,15 +1,15 @@
 <?php
 
-namespace Sly\Push;
+namespace Sly\PushOver;
 
 use Buzz\Message\Response;
 
 /**
- * Push interface.
+ * PushManager interface.
  *
  * @author Cédric Dugat <ph3@slynett.com>
  */
-interface PushInterface
+interface PushManagerInterface
 {
     /**
      * Set message (with or without options).

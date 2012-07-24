@@ -1,15 +1,15 @@
 <?php
 
-namespace Sly\Push\Test;
+namespace Sly\PushOver\Tests;
 
-use Sly\Push\Push;
+use Sly\PushOver\PushManager;
 
 /**
- * Push test class.
+ * PushManager test class.
  *
  * @author Cédric Dugat <ph3@slynett.com>
  */
-class PushTest extends \PHPUnit_Framework_TestCase
+class PushManagerTest extends \PHPUnit_Framework_TestCase
 {
     protected $push;
 
@@ -18,7 +18,7 @@ class PushTest extends \PHPUnit_Framework_TestCase
      */
     public function __construct()
     {
-        $this->push = new Push('XXX', 'YYY');
+        $this->push = new PushManager('XXX', 'YYY');
     }
 
     public function testData()
