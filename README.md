@@ -15,12 +15,30 @@ and get back your personal token/key.
 
 ## Installation
 
-To be written.
+### Add to your project Composer packages
+
+Just add `sly/pushover` package to the requirements of your Composer JSON configuration file,
+and run `php composer.phar install` to install it.
+
+### Install from GitHub
+
+Clone this library from Git with `git clone https://github.com/Ph3nol/PushOver.git`.
+
+Goto to the library directory, get Composer phar package and install vendors:
+
+```
+curl -s https://getcomposer.org/installer | php
+php composer.phar install
+```
+
+You're ready to go.
 
 ## Example
 
 ``` php
 <?php
+
+require_once '/path/to/vendor/autoload.php'; // or your global project autoload
 
 use Sly\Push;
 
@@ -43,5 +61,3 @@ if (true === $push->push($message)) {
      */
 }
 ```
-
-To be continued.
