@@ -2,6 +2,8 @@
 
 namespace Sly\Push;
 
+use Sly\Push\PushInterface;
+
 use Buzz\Browser;
 use Buzz\Message\Response;
 use Buzz\Client\Curl;
@@ -9,9 +11,10 @@ use Buzz\Client\Curl;
 /**
  * Push class.
  *
+ * @uses PushInterface
  * @author Cédric Dugat <ph3@slynett.com>
  */
-class Push
+class Push implements PushInterface
 {
     const API_URL = 'https://api.pushover.net/1/messages.json';
 
@@ -38,10 +41,7 @@ class Push
     }
 
     /**
-     * Set message (with or without options).
-     * 
-     * @param string $message Message
-     * @param array  $options Options
+     * {@inheritdoc}
      */
     public function setMessage($message, array $options = array())
     {
@@ -51,9 +51,7 @@ class Push
     }
 
     /**
-     * Push message.
-     * 
-     * @return boolean
+     * {@inheritdoc}
      */
     public function push()
     {
@@ -79,11 +77,7 @@ class Push
     }
 
     /**
-     * getResponseObj method.
-     * 
-     * @param Response $response Response
-     * 
-     * @return object
+     * {@inheritdoc}
      */
     public function getResponseObj(Response $response)
     {
