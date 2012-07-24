@@ -69,7 +69,9 @@ class Push
             'device'  => $this->pushDevice,
         ));
 
-        if ($responseObj = $this->getResponseObj($response) && true === is_object($responseObj)) {
+        $responseObj = $this->getResponseObj($response);
+
+        if ($responseObj && true === is_object($responseObj)) {
             return (bool) $responseObj->status;
         }
 
@@ -87,11 +89,11 @@ class Push
     {
         $responseObj = json_decode($response->getContent());
 
-        if ($responseObj->user == 'invalid') {
+        if (isset($responseObj->user) && $responseObj->user == 'invalid') {
             throw new \Exception('User key is invalid');
         }
 
-        if ($responseObj->token == 'invalid') {
+        if (isset($responseObj->token) && $responseObj->token == 'invalid') {
             throw new \Exception('User key is invalid');
         }
 
