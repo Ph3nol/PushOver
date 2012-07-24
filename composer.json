@@ -18,6 +18,5 @@
         "psr-0": {
             "Sly": ["src/"]
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
