@@ -51,7 +51,7 @@ $push = new Push('myUs3rk3y', 'myAp1k3y');
  * Second argument (the array) is optional, as its elements.
  */
 $push->setMessage('My message', array(
-    'title' => 'My title',
+    'title'  => 'My title',
     'device' => 'My-Device-Name',
 ));
 
