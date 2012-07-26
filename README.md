@@ -1,7 +1,5 @@
 # SlyPushOver library
 
-**Development in progress.**
-
 ## Requirements
 
 * PHP 5.3+
