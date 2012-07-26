@@ -3,6 +3,7 @@
 namespace Sly\PushOver;
 
 use Sly\PushOver\PushManagerInterface;
+use Sly\PushOver\Model\PushInterface;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
@@ -24,9 +25,6 @@ class PushManager implements PushManagerInterface
     protected $apiKey;
     protected $device;
 
-    protected $pushTitle;
-    protected $pushMessage;
-
     /**
      * Constructor.
      *
@@ -45,27 +43,18 @@ class PushManager implements PushManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function setMessage($message, $title = null)
+    public function push(PushInterface $push)
     {
-        $this->pushMessage = $message;
-        $this->pushTitle   = $title;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function push()
-    {
-        if (empty($this->pushMessage) || null == $this->pushMessage) {
+        if (null == $push->getMessage()) {
             throw new \Exception('There is no message to push');
         }
 
         $response = $this->browser->submit(self::API_URL, array(
             'user'    => $this->userKey,
             'token'   => $this->apiKey,
-            'message' => $this->pushMessage,
-            'title'   => $this->pushTitle,
             'device'  => $this->device,
+            'message' => $push->getMessage(),
+            'title'   => $push->getTitle(),
         ));
 
         $responseObj = $this->getResponseObj($response);

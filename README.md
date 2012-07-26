@@ -40,7 +40,15 @@ You're ready to go.
 
 require_once '/path/to/vendor/autoload.php'; // or your global project autoload
 
+use Sly\PushOver\Model\Push;
 use Sly\PushOver\PushManager;
+
+/**
+ * First, create your own push, with its message.
+ */
+$myPush = new Push();
+$myPush->setMessage('Pony is wonderful!');
+$myPush->setTitle('Example'); // Optional
 
 /**
  * Create an instance for PushManager.
@@ -50,11 +58,9 @@ use Sly\PushOver\PushManager;
 $push = new PushManager('myUs3rk3y', 'myAp1k3y');
 
 /**
- * Set the message (second argument can be an optional title for your notification).
+ * Push it! :)
  */
-$push->setMessage('Poney is powerful!', 'Example');
-
-if (true === $push->push($message)) {
+if (true === $push->push($myPush)) {
     /**
      * Your message has been sent.
      */

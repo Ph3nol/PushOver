@@ -2,6 +2,8 @@
 
 namespace Sly\PushOver;
 
+use Sly\PushOver\Model\PushInterface;
+
 use Buzz\Message\Response;
 
 /**
@@ -12,19 +14,13 @@ use Buzz\Message\Response;
 interface PushManagerInterface
 {
     /**
-     * Set message.
-     * 
-     * @param string $message Message
-     * @param string $title   Title (optional)
-     */
-    public function setMessage($message, $title = null);
-
-    /**
      * Push message.
+     *
+     * @param PushInterface $push Push
      * 
      * @return boolean
      */
-    public function push();
+    public function push(PushInterface $push);
 
     /**
      * getResponseObj method.
