@@ -43,17 +43,16 @@ require_once '/path/to/vendor/autoload.php'; // or your global project autoload
 use Sly\PushOver\PushManager;
 
 /**
- * First argument is your PushOver user key, second is your API/token one.
+ * Create an instance for PushManager.
+ * Give it your user key (first arguement) and token one (second argument).
+ * You can give a device name on third argument (optional).
  */
 $push = new PushManager('myUs3rk3y', 'myAp1k3y');
 
 /**
- * Second argument (the array) is optional, as its elements.
+ * Set the message (second argument can be an optional title for your notification).
  */
-$push->setMessage('My message', array(
-    'title'  => 'My title',
-    'device' => 'My-Device-Name',
-));
+$push->setMessage('Poney is powerful!', 'Example');
 
 if (true === $push->push($message)) {
     /**

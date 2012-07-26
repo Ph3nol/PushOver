@@ -22,32 +22,33 @@ class PushManager implements PushManagerInterface
 
     protected $userKey;
     protected $apiKey;
+    protected $device;
 
     protected $pushTitle;
     protected $pushMessage;
-    protected $pushDevice;
 
     /**
      * Constructor.
      *
      * @param string $userKey User key
      * @param string $apiKey  API key
+     * @param device $device  Device
      */
-    public function __construct($userKey, $apiKey)
+    public function __construct($userKey, $apiKey, $device = null)
     {
         $this->browser = new Browser(new Curl());
         $this->userKey = $userKey;
         $this->apiKey  = $apiKey;
+        $this->device  = $device;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setMessage($message, array $options = array())
+    public function setMessage($message, $title = null)
     {
         $this->pushMessage = $message;
-        $this->pushTitle   = isset($options['title']) ? $options['title'] : null;
-        $this->pushDevice  = isset($options['device']) ? $options['device'] : null;
+        $this->pushTitle   = $title;
     }
 
     /**
@@ -64,7 +65,7 @@ class PushManager implements PushManagerInterface
             'token'   => $this->apiKey,
             'message' => $this->pushMessage,
             'title'   => $this->pushTitle,
-            'device'  => $this->pushDevice,
+            'device'  => $this->device,
         ));
 
         $responseObj = $this->getResponseObj($response);

@@ -12,12 +12,12 @@ use Buzz\Message\Response;
 interface PushManagerInterface
 {
     /**
-     * Set message (with or without options).
+     * Set message.
      * 
      * @param string $message Message
-     * @param array  $options Options
+     * @param string $title   Title (optional)
      */
-    public function setMessage($message, array $options = array());
+    public function setMessage($message, $title = null);
 
     /**
      * Push message.
