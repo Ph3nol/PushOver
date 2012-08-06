@@ -64,7 +64,7 @@ class PushManager implements PushManagerInterface
             throw new WebServiceException('PushOver distant web service timed out');
         }
 
-        $responseObj = $this->getResponseObj($response);
+        $responseObj = $this->_getResponseObj($response);
 
         if ($responseObj && true === is_object($responseObj)) {
             return (bool) $responseObj->status;
@@ -74,9 +74,13 @@ class PushManager implements PushManagerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * getResponseObj method.
+     * 
+     * @param Response $response Response
+     * 
+     * @return object
      */
-    public function getResponseObj(Response $response)
+    protected function _getResponseObj(Response $response)
     {
         $responseObj = json_decode($response->getContent());
 

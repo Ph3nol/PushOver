@@ -21,13 +21,4 @@ interface PushManagerInterface
      * @return boolean
      */
     public function push(PushInterface $push);
-
-    /**
-     * getResponseObj method.
-     * 
-     * @param Response $response Response
-     * 
-     * @return object
-     */
-    public function getResponseObj(Response $response);
 }
