@@ -4,6 +4,9 @@ namespace Sly\PushOver;
 
 use Sly\PushOver\PushManagerInterface;
 use Sly\PushOver\Model\PushInterface;
+use Sly\PushOver\Exception\AuthenticationException;
+use Sly\PushOver\Exception\InvalidMessageException;
+use Sly\PushOver\Exception\WebServiceException;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
@@ -46,16 +49,20 @@ class PushManager implements PushManagerInterface
     public function push(PushInterface $push)
     {
         if (null == $push->getMessage()) {
-            throw new \Exception('There is no message to push');
+            throw new InvalidMessageException('There is no message to push');
         }
 
-        $response = $this->browser->submit(self::API_URL, array(
-            'user'    => $this->userKey,
-            'token'   => $this->apiKey,
-            'device'  => $this->device,
-            'message' => $push->getMessage(),
-            'title'   => $push->getTitle(),
-        ));
+        try {
+            $response = $this->browser->submit(self::API_URL, array(
+                'user'    => $this->userKey,
+                'token'   => $this->apiKey,
+                'device'  => $this->device,
+                'message' => $push->getMessage(),
+                'title'   => $push->getTitle(),
+            ));
+        } catch (WebServiceException $e) {
+            throw new WebServiceException('PushOver distant web service timed out');
+        }
 
         $responseObj = $this->getResponseObj($response);
 
@@ -74,11 +81,11 @@ class PushManager implements PushManagerInterface
         $responseObj = json_decode($response->getContent());
 
         if (isset($responseObj->user) && $responseObj->user == 'invalid') {
-            throw new \Exception('User key is invalid');
+            throw new AuthenticationException('User key is invalid');
         }
 
         if (isset($responseObj->token) && $responseObj->token == 'invalid') {
-            throw new \Exception('User key is invalid');
+            throw new AuthenticationException('Token key is invalid');
         }
 
         return $responseObj;
