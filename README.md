@@ -1,5 +1,7 @@
 # SlyPushOver library
 
+[![Continuous Integration status](https://secure.travis-ci.org/Ph3nol/PushOver.png)](http://travis-ci.org/Ph3nol/PushOver)
+
 ## Requirements
 
 * PHP 5.3+
