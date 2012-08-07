@@ -1,4 +1,4 @@
-# SlyPushOver library
+# PushOver library
 
 [![Continuous Integration status](https://secure.travis-ci.org/Ph3nol/PushOver.png)](http://travis-ci.org/Ph3nol/PushOver)
 
