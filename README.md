@@ -55,12 +55,12 @@ $myPush->setTitle('Example'); // Optional
  * Give it your user key (first arguement) and token one (second argument).
  * You can give a device name on third argument (optional).
  */
-$push = new PushManager('myUs3rk3y', 'myAp1k3y');
+$pushManager = new PushManager('myUs3rk3y', 'myAp1k3y');
 
 /**
  * Push it! :)
  */
-if (true === $push->push($myPush)) {
+if (true === $pushManager->push($myPush)) {
     /**
      * Your message has been sent.
      */
