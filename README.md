@@ -60,9 +60,10 @@ $pushManager = new PushManager('myUs3rk3y', 'myAp1k3y');
 /**
  * Push it! :)
  */
-if (true === $pushManager->push($myPush)) {
+if ($mySentPushInformations == $pushManager->push($myPush)) {
     /**
      * Your message has been sent.
+     * $mySentPushInformations contents your sent push informations.
      */
 }
 ```

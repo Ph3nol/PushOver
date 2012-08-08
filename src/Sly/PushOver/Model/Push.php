@@ -12,6 +12,7 @@ class Push implements PushInterface
 {
     protected $title;
     protected $message;
+    protected $sentAt;
 
     /**
      * Constructor.
@@ -20,6 +21,7 @@ class Push implements PushInterface
     {
         $this->title   = null;
         $this->message = null;
+        $this->sentAt  = null;
     }
 
     /**
@@ -62,5 +64,21 @@ class Push implements PushInterface
     public function setMessage($message)
     {
         $this->message = $message;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSentAt()
+    {
+        return $this->sentAt;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setSentAt(\DateTime $sentAt)
+    {
+        $this->sentAt = $sentAt;
     }
 }

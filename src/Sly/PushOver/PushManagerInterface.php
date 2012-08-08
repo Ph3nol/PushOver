@@ -16,9 +16,10 @@ interface PushManagerInterface
     /**
      * Push message.
      *
-     * @param PushInterface $push Push
+     * @param PushInterface $push     Push
+     * @param boolean       $realSend Real send
      * 
-     * @return boolean
+     * @return boolean|array
      */
-    public function push(PushInterface $push);
+    public function push(PushInterface $push, $realSend = true);
 }

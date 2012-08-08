@@ -36,4 +36,18 @@ interface PushInterface
       * @param string $message Message value to set
       */
     public function setMessage($message);
+
+    /**
+      * Get sentAt value.
+      *
+      * @return string sentAt value to get
+      */
+    public function getSentAt();
+    
+    /**
+      * Set sentAt value.
+      *
+      * @param \DateTime $sentAt sentAt value to set
+      */
+    public function setSentAt(\DateTime $sentAt);
 }

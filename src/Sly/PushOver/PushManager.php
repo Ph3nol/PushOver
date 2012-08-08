@@ -46,10 +46,18 @@ class PushManager implements PushManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function push(PushInterface $push)
+    public function push(PushInterface $push, $realSend = true)
     {
         if (null == $push->getMessage()) {
             throw new InvalidMessageException('There is no message to push');
+        }
+
+        if (false === $realSend) {
+            return array(
+                'push'     => $push,
+                'response' => null,
+                'status'   => null,
+            );
         }
 
         try {
@@ -67,7 +75,13 @@ class PushManager implements PushManagerInterface
         $responseObj = $this->_getResponseObj($response);
 
         if ($responseObj && true === is_object($responseObj)) {
-            return (bool) $responseObj->status;
+            $push->setSentAt(new \DateTime());
+
+            return array(
+                'push'     => $push,
+                'response' => $responseObj,
+                'status'   => (bool) $responseObj->status,
+            );
         }
 
         return false;
