@@ -12,7 +12,7 @@ interface PushInterface
     /**
       * Get Title value.
       *
-      * @return string Title value to get
+      * @return string
       */
     public function getTitle();
     
@@ -26,7 +26,7 @@ interface PushInterface
     /**
       * Get Message value.
       *
-      * @return string Message value to get
+      * @return string
       */
     public function getMessage();
     
@@ -38,16 +38,30 @@ interface PushInterface
     public function setMessage($message);
 
     /**
-      * Get sentAt value.
+      * Get Date value.
       *
-      * @return string sentAt value to get
+      * @return string
       */
-    public function getSentAt();
+    public function getDate();
     
     /**
-      * Set sentAt value.
+      * Set Date value.
       *
-      * @param \DateTime $sentAt sentAt value to set
+      * @param \DateTime $date Date value to set
       */
-    public function setSentAt(\DateTime $sentAt);
+    public function setDate(\DateTime $date);
+
+    /**
+      * Get hasBeenSent value.
+      *
+      * @return boolean
+      */
+    public function getHasBeenSent();
+    
+    /**
+      * Set hasBeenSent value.
+      *
+      * @param boolean $hasBeenSent Has been sent value
+      */
+    public function setHasBeenSent($hasBeenSent);
 }

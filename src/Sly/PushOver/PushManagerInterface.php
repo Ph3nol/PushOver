@@ -19,7 +19,7 @@ interface PushManagerInterface
      * @param PushInterface $push     Push
      * @param boolean       $realSend Real send
      * 
-     * @return boolean|array
+     * @return stdClass|array
      */
     public function push(PushInterface $push, $realSend = true);
 }

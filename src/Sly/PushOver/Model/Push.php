@@ -12,16 +12,18 @@ class Push implements PushInterface
 {
     protected $title;
     protected $message;
-    protected $sentAt;
+    protected $date;
+    protected $hasBeenSent;
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->title   = null;
-        $this->message = null;
-        $this->sentAt  = null;
+        $this->title       = null;
+        $this->message     = null;
+        $this->date        = new \DateTime();
+        $this->hasBeenSent = false;
     }
 
     /**
@@ -69,16 +71,32 @@ class Push implements PushInterface
     /**
      * {@inheritdoc}
      */
-    public function getSentAt()
+    public function getDate()
     {
-        return $this->sentAt;
+        return $this->date;
     }
     
     /**
      * {@inheritdoc}
      */
-    public function setSentAt(\DateTime $sentAt)
+    public function setDate(\DateTime $date)
     {
-        $this->sentAt = $sentAt;
+        $this->date = $date;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHasBeenSent()
+    {
+        return $this->hasBeenSent;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function setHasBeenSent($hasBeenSent)
+    {
+        $this->hasBeenSent = $hasBeenSent;
     }
 }
