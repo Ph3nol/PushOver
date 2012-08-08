@@ -52,6 +52,8 @@ class PushManager implements PushManagerInterface
             throw new InvalidMessageException('There is no message to push');
         }
 
+        $push->setSentAt(new \DateTime());
+
         if (false === $realSend) {
             return array(
                 'push'     => $push,
@@ -75,8 +77,6 @@ class PushManager implements PushManagerInterface
         $responseObj = $this->_getResponseObj($response);
 
         if ($responseObj && true === is_object($responseObj)) {
-            $push->setSentAt(new \DateTime());
-
             return array(
                 'push'     => $push,
                 'response' => $responseObj,
