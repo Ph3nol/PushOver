@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PushOver by Ph3nol</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>PushOver</h1>
+        <p>A PHP library for easy PushOver service use: send real-time notifications to your Android and iOS devices.</p>
+
+        <p class="view"><a href="https://github.com/Ph3nol/PushOver">View the Project on GitHub <small>Ph3nol/PushOver</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Ph3nol/PushOver/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Ph3nol/PushOver/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Ph3nol/PushOver">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>PushOver library</h1>
+
+<p><a href="http://travis-ci.org/Ph3nol/PushOver"><img src="https://secure.travis-ci.org/Ph3nol/PushOver.png" alt="Continuous Integration status"></a></p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>PHP 5.3+</li>
+<li>A <a href="https://pushover.net">PushOver</a> account</li>
+<li>Have installed PushOver app on your phone
+(<a href="http://itunes.apple.com/us/app/pushover-notifications/id506088175?mt=8">iPhone</a> or <a href="https://play.google.com/store/apps/details?id=net.superblock.pushover&amp;hl=fr">Android</a>)</li>
+</ul><p>Once you've been registered and after having installed the mobile application,
+<a href="https://pushover.net/apps/build">click this link</a> to create your own API application
+and get back your personal token/key.</p>
+
+<h2>Installation</h2>
+
+<h3>Add to your project Composer packages</h3>
+
+<p>Just add <code>sly/pushover</code> package to the requirements of your Composer JSON configuration file,
+and run <code>php composer.phar install</code> to install it.</p>
+
+<h3>Install from GitHub</h3>
+
+<p>Clone this library from Git with <code>git clone https://github.com/Ph3nol/PushOver.git</code>.</p>
+
+<p>Goto to the library directory, get Composer phar package and install vendors:</p>
+
+<pre><code>curl -s https://getcomposer.org/installer | php
+php composer.phar install
+</code></pre>
+
+<p>You're ready to go.</p>
+
+<h2>Example</h2>
+
+<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">require_once</span> <span class="s1">'/path/to/vendor/autoload.php'</span><span class="p">;</span> <span class="c1">// or your global project autoload</span>
+
+<span class="k">use</span> <span class="nx">Sly\PushOver\Model\Push</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Sly\PushOver\PushManager</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * First, create your own push, with its message.</span>
+<span class="sd"> */</span>
+<span class="nv">$myPush</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Push</span><span class="p">();</span>
+<span class="nv">$myPush</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">'Pony is wonderful!'</span><span class="p">);</span>
+<span class="nv">$myPush</span><span class="o">-&gt;</span><span class="na">setTitle</span><span class="p">(</span><span class="s1">'Example'</span><span class="p">);</span> <span class="c1">// Optional</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Create an instance for PushManager.</span>
+<span class="sd"> * Give it your user key (first arguement) and token one (second argument).</span>
+<span class="sd"> * You can give a device name on third argument (optional).</span>
+<span class="sd"> */</span>
+<span class="nv">$pushManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PushManager</span><span class="p">(</span><span class="s1">'myUs3rk3y'</span><span class="p">,</span> <span class="s1">'myAp1k3y'</span><span class="p">);</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Push it! :)</span>
+<span class="sd"> */</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$mySentPushInformations</span> <span class="o">==</span> <span class="nv">$pushManager</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="nv">$myPush</span><span class="p">))</span> <span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Your message has been sent.</span>
+<span class="sd">     * $mySentPushInformations contents your sent push informations.</span>
+<span class="sd">     */</span>
+<span class="p">}</span>
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Ph3nol">Ph3nol</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
