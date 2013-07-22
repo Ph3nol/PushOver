@@ -1,8 +1,8 @@
 {
-    "name": "hsleewis/pushover",
+    "name": "sly/pushover",
     "description": "A PHP library for easy PushOver service use: send real-time notifications to your Android and iOS devices.",
     "keywords": ["pushover", "service", "push", "notification", "iphone", "android"],
-    "homepage": "https://github.com/hsleewis/PushOver",
+    "homepage": "https://github.com/Ph3nol/PushOver",
     "type": "library",
     "license": "MIT",
     "authors": [
