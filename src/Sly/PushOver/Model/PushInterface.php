@@ -37,19 +37,19 @@ interface PushInterface
       */
     public function setMessage($message);
     
-	/**
-	  * Get Sound value.
-	  *
-	  * @return string
-	  */
+    /**
+      * Get Sound value.
+      *
+      * @return string
+      */
     public function getSound();
 
-	/**
-	  * Set Sound value.
-	  *
-	  * @param string $sound Sound value to set
-	  */
-	public function setSound($sound);
+    /**
+      * Set Sound value.
+      *
+      * @param string $sound Sound value to set
+      */
+    public function setSound($sound);
 
     /**
       * Get Date value.
