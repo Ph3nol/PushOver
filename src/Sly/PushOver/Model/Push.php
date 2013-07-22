@@ -72,18 +72,18 @@ class Push implements PushInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getSound()
-	{
-	    return $this->sound;
-	}
+    public function getSound()
+    {
+        return $this->sound;
+    }
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function setSound($sound)
-	{
-	    $this->sound = $sound;
-	}
+    public function setSound($sound)
+    {
+        $this->sound = $sound;
+    }
 	
 
     /**

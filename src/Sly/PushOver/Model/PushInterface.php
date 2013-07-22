@@ -42,8 +42,8 @@ interface PushInterface
 	  *
 	  * @return string
 	  */
-	public function getSound();
-	
+    public function getSound();
+
 	/**
 	  * Set Sound value.
 	  *
