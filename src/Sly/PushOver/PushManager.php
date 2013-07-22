@@ -66,6 +66,7 @@ class PushManager implements PushManagerInterface
                 'token'   => $this->apiKey,
                 'device'  => $this->device,
                 'message' => $push->getMessage(),
+                'sound'   => $push->getSound(),
                 'title'   => $push->getTitle(),
             ));
         } catch (WebServiceException $e) {
