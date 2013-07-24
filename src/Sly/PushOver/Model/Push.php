@@ -22,6 +22,7 @@ class Push implements PushInterface
     {
         $this->title       = null;
         $this->message     = null;
+        $this->sound	   = null;
         $this->date        = new \DateTime();
         $this->hasBeenSent = false;
     }
@@ -67,6 +68,23 @@ class Push implements PushInterface
     {
         $this->message = $message;
     }
+
+	/**
+	 * {@inheritdoc}
+	 */
+    public function getSound()
+    {
+        return $this->sound;
+    }
+
+	/**
+	 * {@inheritdoc}
+	 */
+    public function setSound($sound)
+    {
+        $this->sound = $sound;
+    }
+	
 
     /**
      * {@inheritdoc}
