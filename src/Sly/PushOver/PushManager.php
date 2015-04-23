@@ -61,14 +61,24 @@ class PushManager implements PushManagerInterface
         }
 
         try {
-            $response = $this->browser->submit(self::API_URL, array(
+            $payload = array(
                 'user'    => $this->userKey,
                 'token'   => $this->apiKey,
                 'device'  => $this->device,
                 'message' => $push->getMessage(),
                 'sound'   => $push->getSound(),
                 'title'   => $push->getTitle(),
-            ));
+            );
+
+            if (null != $push->getUrl()) {
+                $payload['url'] = $push->getUrl();
+            }
+
+            if (null != $push->getUrlTitle()) {
+                $payload['url_title'] = $push->getUrlTitle();
+            }
+
+            $response = $this->browser->submit(self::API_URL, $payload);
         } catch (WebServiceException $e) {
             throw new WebServiceException('PushOver distant web service timed out');
         }
