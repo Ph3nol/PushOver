@@ -14,6 +14,8 @@ class Push implements PushInterface
     protected $message;
     protected $date;
     protected $hasBeenSent;
+    protected $url;
+    protected $urlTitle;
 
     /**
      * Constructor.
@@ -29,7 +31,7 @@ class Push implements PushInterface
 
     /**
      * __toString.
-     * 
+     *
      * @return string
      */
     public function __toString()
@@ -44,7 +46,7 @@ class Push implements PushInterface
     {
         return $this->title;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -60,7 +62,7 @@ class Push implements PushInterface
     {
         return $this->message;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -84,7 +86,7 @@ class Push implements PushInterface
     {
         $this->sound = $sound;
     }
-	
+
 
     /**
      * {@inheritdoc}
@@ -93,7 +95,7 @@ class Push implements PushInterface
     {
         return $this->date;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -109,12 +111,36 @@ class Push implements PushInterface
     {
         return $this->hasBeenSent;
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function setHasBeenSent($hasBeenSent)
     {
         $this->hasBeenSent = $hasBeenSent;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getUrlTitle()
+    {
+        return $this->urlTitle;
+    }
+
+    public function setUrlTitle($title)
+    {
+        $this->urlTitle = $title;
+
+        return $this;
     }
 }

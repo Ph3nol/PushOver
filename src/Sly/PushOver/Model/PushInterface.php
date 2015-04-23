@@ -15,7 +15,7 @@ interface PushInterface
       * @return string
       */
     public function getTitle();
-    
+
     /**
       * Set Title value.
       *
@@ -29,14 +29,14 @@ interface PushInterface
       * @return string
       */
     public function getMessage();
-    
+
     /**
       * Set Message value.
       *
       * @param string $message Message value to set
       */
     public function setMessage($message);
-    
+
     /**
       * Get Sound value.
       *
@@ -57,7 +57,7 @@ interface PushInterface
       * @return string
       */
     public function getDate();
-    
+
     /**
       * Set Date value.
       *
@@ -71,11 +71,17 @@ interface PushInterface
       * @return boolean
       */
     public function getHasBeenSent();
-    
+
     /**
       * Set hasBeenSent value.
       *
       * @param boolean $hasBeenSent Has been sent value
       */
     public function setHasBeenSent($hasBeenSent);
+
+    public function getUrl();
+    public function setUrl($url);
+
+    public function getUrlTitle();
+    public function setUrlTitle($title);
 }
