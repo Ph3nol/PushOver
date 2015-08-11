@@ -52,7 +52,7 @@ $myPush->setTitle('Example'); // Optional
 
 /**
  * Create an instance for PushManager.
- * Give it your user key (first arguement) and token one (second argument).
+ * Give it your user key (first argument) and token one (second argument).
  * You can give a device name on third argument (optional).
  */
 $pushManager = new PushManager('myUs3rk3y', 'myAp1k3y');
