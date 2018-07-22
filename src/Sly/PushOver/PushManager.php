@@ -9,7 +9,7 @@ use Sly\PushOver\Exception\InvalidMessageException;
 use Sly\PushOver\Exception\WebServiceException;
 
 use Buzz\Browser;
-use Buzz\Message\Response;
+use Nyholm\Psr7\Response;
 use Buzz\Client\Curl;
 
 /**
@@ -61,7 +61,7 @@ class PushManager implements PushManagerInterface
         }
 
         try {
-            $response = $this->browser->submit(self::API_URL, array(
+            $response = $this->browser->submitForm(self::API_URL, array(
                 'user'    => $this->userKey,
                 'token'   => $this->apiKey,
                 'device'  => $this->device,
@@ -97,7 +97,7 @@ class PushManager implements PushManagerInterface
      */
     protected function _getResponseObj(Response $response)
     {
-        $responseObj = json_decode($response->getContent());
+        $responseObj = json_decode($response->getBody());
 
         if (isset($responseObj->user) && $responseObj->user == 'invalid') {
             throw new AuthenticationException('User key is invalid');
